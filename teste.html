@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste</title>
+</head>
+<style>
+  #box {
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+  }
+</style>
+<body>
+  <div id="box"></div>
+
+  <script>
+    const numeros = [1, 2, 3, 4];
+    let index = 0;
+    const box = document.getElementById('box');
+
+    function changeNumber() {
+      box.textContent = numeros[index];
+      index = (index + 1) % numeros.length; // volta ao início após o último número
+      
+    }
+
+    changeNumber(); // exibe o primeiro número imediatamente
+    setInterval(changeNumber, 3000); // atualiza a cada 3 segundos
+  </script>
+</body>
+</html>
