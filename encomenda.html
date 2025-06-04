@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Peca aqui</title>
   </head>
   <body>
     <div class="container2">
+  
+      <main>
       <!-- Lista de doces -->
       <div class="lista-doces lista">
         <h2>Doces Disponíveis</h2>
@@ -50,9 +55,9 @@
           class="img-scanner"
         /> -->
         <div class="scan">
-	<div class="qrcode"></div>
-	<div class="border"></div>
-</div>
+          <div class="qrcode"></div>
+          <div class="border"></div>
+        </div>
         <div class="scanner-drop">📦 Solte aqui para adicionar</div>
       </div>
 
@@ -63,6 +68,29 @@
         <div id="total">Total: R$ 0,00</div>
         <button type="button" id="finalizar-compra">Finalizar Compra</button>
       </div>
+      </main>
+      
+             <div class="ex2">
+        <div class="cube">
+          <div class="side front"></div>
+          <div class="side back"></div>
+          <div class="side right"></div>
+          <div class="side left">
+            <div class="logos">
+              <img src="/assets/reciclado.png" alt="" class="log-img">
+              <img src="/assets/cima.png" alt="" class="log-img">
+              <img src="/assets/fragil.png" alt="" class="log-img">
+            </div>
+
+          </div>
+          <div class="side top">
+            <span>Doceria da Paty</span>
+            <button type="button" id="enviar">Enviar</button>
+          </div>
+          <div class="side bottom"></div>
+        </div>
+      </div>
+     
     </div>
 
     <div id="modal" class="modal">
@@ -70,14 +98,13 @@
         <span id="fechar-modal">&times;</span>
         <h2>Adicionar ao Carrinho</h2>
         <p id="nome-doce"></p>
-        <label for="quantidade">Quantidade:
-        <input type="number" id="quantidade" min="1" value="1" />
+        <label for="quantidade"
+          >Quantidade:
+          <input type="number" id="quantidade" min="1" value="1" />
         </label>
         <p id="preco-total"></p>
         <div id="bts">
-          <button type="button" id="adicionar-carrinho">
-            Adicionar
-          </button>
+          <button type="button" id="adicionar-carrinho">Adicionar</button>
           <button type="button" id="limpar">Limpar</button>
           <button type="button" id="cancelar">Cancelar</button>
         </div>
