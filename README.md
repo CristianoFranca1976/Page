@@ -1,4 +1,4 @@
-✅ O QUE VOCÊ VAI PRECISAR
+## ✅ O QUE VOCÊ VAI PRECISAR
 Conta no EmailJS (grátis).
 
 Criar um template de email lá.
@@ -9,7 +9,7 @@ Adicionar a biblioteca do EmailJS no HTML.
 
 Usar o script que envia o email com os dados do pedido.
 
-✅ PASSO A PASSO COMPLETO
+## ✅ PASSO A PASSO COMPLETO
 🧩 1. Criar conta no EmailJS
 Acesse: https://www.emailjs.com
 → Clique em "Start for free"
