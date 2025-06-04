@@ -10,10 +10,12 @@
 
 body {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: pink;
+  background-image: url(/assets/body.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #container {
@@ -151,10 +153,10 @@ a:hover {
   height: 1000px;
   gap: 5px;
   padding: 50px 0;
-  background-image: url(/assets/background.jpg);
+  /* background-image: url(/assets/background.jpg);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 main {
