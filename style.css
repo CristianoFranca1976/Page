@@ -11,8 +11,10 @@
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  background-image: url(/assets/body.jpg);
+  background-color: pink;
+  background-image: url(/assets/background\ 1.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -478,12 +480,13 @@ footer {
 
 .ex2 {
   perspective: 950px;
-  margin-bottom: 300px;
+  margin-top: 300px;
 }
 
 .cube {
   font-size: 4em;
-  width: 2em;
+  width: 200px;
+  height: 200px;
   margin: 1.5em auto;
   transform-style: preserve-3d;
   transform: rotateX(0deg) rotateY(40deg);
@@ -491,51 +494,51 @@ footer {
 
 .side {
   position: absolute;
-  width: 2em;
-  height: 2em;
-  background: pink;
+  width: 200px;
+  height: 200px;
+  background: rgb(236, 150, 52);
   border: 1px solid rgb(160, 114, 122);
   text-align: center;
   line-height: 0.5em;
 }
 .front {
-  transform: translateZ(1em);
+  transform: translateZ(100px);
 }
 .top {
-  transform: rotateX(90deg) translateZ(1em);
+  transform: rotateX(90deg) translateZ(100px);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 .right {
-  transform: rotateY(90deg) translateZ(1em);
+  transform: rotateY(90deg) translateZ(100px);
 }
 .left {
-  transform: rotateY(-90deg) translateZ(1em);
+  transform: rotateY(-90deg) translateZ(100px);
 }
 .bottom {
-  transform: rotateX(-90deg) translateZ(1em);
+  transform: rotateX(-90deg) translateZ(100px);
 }
 .back {
-  transform: rotateY(-180deg) translateZ(1em);
+  transform: rotateY(-180deg) translateZ(100px);
 }
 
 .top {
-  transform: rotateX(-90deg) translateZ(1em);
+  transform: rotateX(-90deg) translateZ(100px);
   transform-origin: bottom top;
   animation: openLid 2s ease-out forwards;
 }
 
 @keyframes openLid {
   0% {
-    transform: rotateX(90deg) translateZ(1em);
+    transform: rotateX(90deg) translateZ(100px);
   }
   50% {
-    transform: rotateX(90deg) translateZ(2em);
+    transform: rotateX(90deg) translateZ(4em);
   }
   100% {
-    transform: skewX(20deg) translateZ(2em);
+    transform: skewX(20deg) translateZ(4em);
   }
 }
 
@@ -548,7 +551,8 @@ footer {
   padding-bottom: 10px;
 }
 .log-img {
-  width: 30px;
+  width: 60px;
+  height: 60px;
 }
 span {
   font-size: 20px;
@@ -566,3 +570,5 @@ span {
 #enviar:active {
   border: none;
 }
+
+
