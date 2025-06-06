@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/beijinho.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -239,8 +240,8 @@
           const div = document.createElement("div");
           const div1 = document.createElement("div");
           div.innerHTML = `
-      <p>${item.quantidade} x ${item.nome}: </p>
-      <p>£ ${item.total.toFixed(2)}</p>
+      <h3 class="lista-paragraph">${item.quantidade} x ${item.nome}: </h3>
+      <h3 class="lista-paragraph">£ ${item.total.toFixed(2)}</h3>
     `;
           div1.innerHTML = `
     <strong>${item.nome}: ${item.quantidade}</strong><br>
@@ -336,7 +337,23 @@
       const carrinhoClass = document.querySelector(".carrinho");
 
       function enviar() {
+        const top = document.querySelector('.top');
+        const ex2 = document.querySelector('.ex2');
+        const front = document.querySelector('.front');
+        const h2 = document.querySelector('h2');
+
+        top.classList.add('close-box');
         carrinhoClass.style.display = "flex";
+        ex2.style.transition = '10s ease-in-out';
+        ex2.style.transform = 'rotateY(180deg)';
+    
+        setTimeout(() => {
+          front.innerHTML = `
+        <h2 class="h2-modificado">Caixa fechada</h2>
+        `;
+        
+        }, 5000);
+        
       }
     </script>
   </body>
