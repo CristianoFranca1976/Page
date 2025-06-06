@@ -12,85 +12,105 @@
   </head>
   <body>
     <div class="container2">
-  
       <main>
-      <!-- Lista de doces -->
-      <div class="lista-doces lista">
-        <h2>Doces Disponíveis</h2>
         <!-- Lista de doces -->
-        <ul class="lista-doces">
-          <li
-            data-nome="Brigadeiro"
-            data-preco="2.50"
-            draggable="true"
-            ondragstart="arrastarDoce(event)"
-          >
-            <img src="/assets/doce1.png" alt="Brigadeiro" />
-            <span>Brigadeiro</span>
-          </li>
-          <li
-            data-nome="Beijinho"
-            data-preco="2.80"
-            draggable="true"
-            ondragstart="arrastarDoce(event)"
-          >
-            <img src="/assets/beijinho.png" alt="Beijinho" />
-            <span>Beijinho</span>
-          </li>
-        </ul>
-        <!-- Adicione mais doces aqui -->
-      </div>
-
-      <!-- Scanner de supermercado -->
-      <div
-        id="scanner-area"
-        class="scanner"
-        ondragover="permitirSoltar(event)"
-        ondrop="soltarDoce(event)"
-      >
-        <h2>Arraste o doce aqui</h2>
-        <!-- <img
+        <div class="lista-doces lista">
+          <div class="carrossel-container">
+            <h2>Doces Disponíveis</h2>
+            <div class="carrossel-wrapper">
+              <button
+                type="button"
+                class="seta esquerda"
+                onclick="moverCarrossel(-1)"
+              >
+                &#9664;
+              </button>
+              <div class="carrossel-viewport">
+                <!-- Lista de doces -->
+                <ul class="carrossel-lista" id="lista-doces">
+                  <li
+                    class="doce-item"
+                    data-nome="Brigadeiro"
+                    data-preco="2.50"
+                    draggable="true"
+                    ondragstart="arrastarDoce(event)"
+                  >
+                    <img src="/assets/doce1.png" alt="Brigadeiro" />
+                    <span>Brigadeiro</span>
+                  </li>
+                  <li
+                    class="doce-item"
+                    data-nome="Beijinho"
+                    data-preco="2.80"
+                    draggable="true"
+                    ondragstart="arrastarDoce(event)"
+                  >
+                    <img src="/assets/beijinho.png" alt="Beijinho" />
+                    <span>Beijinho</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- Adicione mais doces aqui -->
+              <button
+                type="button"
+                class="seta direita"
+                onclick="moverCarrossel(1)"
+              >
+                &#9654;
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Scanner de supermercado -->
+        <div
+          id="scanner-area"
+          class="scanner"
+          ondragover="permitirSoltar(event)"
+          ondrop="soltarDoce(event)"
+        >
+          <h2>Arraste o doce aqui</h2>
+          <!-- <img
           src="/assets/scan.png"
           alt="Scanner"
           class="img-scanner"
         /> -->
-        <div class="scan">
-          <div class="qrcode"></div>
-          <div class="border"></div>
+          <div class="scan">
+            <div class="qrcode"></div>
+            <div class="border"></div>
+          </div>
+          <div class="scanner-drop">📦 Solte aqui para adicionar</div>
         </div>
-        <div class="scanner-drop">📦 Solte aqui para adicionar</div>
-      </div>
 
-      <!-- Carrinho de compras -->
-      <div class="carrinho">
-        <h2>Carrinho</h2>
-        <div id="itens-carrinho"></div>
-        <div id="total">Total: R$ 0,00</div>
-        <button type="button" id="finalizar-compra">Finalizar Compra</button>
-      </div>
+        <!-- Carrinho de compras -->
+        <div class="carrinho">
+          <h2>Pedido</h2>
+          <div id="itens-carrinho"></div>
+          <div id="total">Total: R$ 0,00</div>
+          <button type="button" id="finalizar-compra">Finalizar Compra</button>
+        </div>
       </main>
-      
-             <div class="ex2">
+
+      <div class="ex2">
         <div class="cube">
-          <div class="side front"></div>
+          <div class="side front">
+            <div id="front"></div>
+          </div>
           <div class="side back"></div>
           <div class="side right"></div>
           <div class="side left">
             <div class="logos">
-              <img src="/assets/reciclado.png" alt="" class="log-img">
-              <img src="/assets/cima.png" alt="" class="log-img">
-              <img src="/assets/fragil.png" alt="" class="log-img">
+              <img src="/assets/reciclado.png" alt="" class="log-img" />
+              <img src="/assets/cima.png" alt="" class="log-img" />
+              <img src="/assets/fragil.png" alt="" class="log-img" />
             </div>
-
           </div>
           <div class="side top">
             <span>Doceria da Paty</span>
-            <button type="button" id="enviar">Enviar</button>
+            <button type="button" id="enviar" onclick="enviar()">Enviar</button>
           </div>
           <div class="side bottom"></div>
         </div>
       </div>
-     
     </div>
 
     <div id="modal" class="modal">
@@ -211,15 +231,23 @@
 
       function atualizarCarrinho() {
         const container = document.getElementById("itens-carrinho");
+        const front = document.getElementById("front");
+
         container.innerHTML = "";
+        front.innerHTML = "";
         carrinho.forEach((item) => {
           const div = document.createElement("div");
+          const div1 = document.createElement("div");
           div.innerHTML = `
-      <strong>${item.nome}</strong><br>
-      Quantidade: ${item.quantidade}<br>
-      Valor: £ ${item.total.toFixed(2)}
+      <p>${item.quantidade} x ${item.nome}: </p>
+      <p>£ ${item.total.toFixed(2)}</p>
+    `;
+          div1.innerHTML = `
+    <strong>${item.nome}: ${item.quantidade}</strong><br>
     `;
           div.classList.add("item-carrinho");
+          div1.classList.add('front-box')
+          front.appendChild(div1);
           container.appendChild(div);
         });
         document.getElementById(
@@ -275,6 +303,41 @@
       document
         .getElementById("finalizar-compra")
         .addEventListener("click", finalizarCompra);
+
+      // carrocel
+
+      let indiceAtual = 0;
+
+      function moverCarrossel(direcao) {
+        const lista = document.getElementById("lista-doces");
+        const totalItens = lista.children.length;
+
+        indiceAtual += direcao;
+        if (indiceAtual < 0) indiceAtual = totalItens - 1;
+        if (indiceAtual >= totalItens) indiceAtual = 0;
+
+        const larguraItem = 200; // igual à .carrossel-viewport
+        const deslocamento = -indiceAtual * larguraItem;
+        lista.style.transform = `translateX(${deslocamento}px)`;
+      }
+
+      function arrastarDoce(event) {
+        const doce = event.target.closest("li");
+        const nome = doce.dataset.nome;
+        const preco = doce.dataset.preco;
+        event.dataTransfer.setData(
+          "text/plain",
+          JSON.stringify({ nome, preco })
+        );
+      }
+
+      // Enviar function
+
+      const carrinhoClass = document.querySelector(".carrinho");
+
+      function enviar() {
+        carrinhoClass.style.display = "flex";
+      }
     </script>
   </body>
 </html>
